@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/9b22d73af0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
 
 <body>
-
+    <!-- the header -->
     <div class=" header jumbotron p-4 jumbotron-fluid">
         <div class="container">
             <!-- <h1 class="display-8">Fluid jumbotron</h1> -->
@@ -23,49 +24,54 @@
         </div>
     </div>
 
+
+    <!-- container with user search and recent searchs -->
     <div class="container">
 
         <div class="row">
 
 
             <div class="col-4 ">
-                <h4 class="mr-5">Search for City</h4> <!--  fix margin here  -->
-
+                <section>
+                    <h4 id="search" class="mr-5">Search for City</h4> <!--  fix margin here  -->
+                </section>
                 <div class="row col-10">
 
                     <form class="form-inline ">
-                        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="city"
-                            aria-label="Search">
-                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input id="userCity" class="form-control form-control-sm mr-3" type="text" aria-label="Search">
+                        <button id="bttnSearch" class="btn "> <i class=" fas fa-search" aria-hidden="true"></i>
+                        </button>
                     </form>
 
 
 
                 </div>
-
-                <div class="col">
-                    <div class="row">test</div>
-                    <div class="row">test</div>
-                    <div class="row">test</div>
-                    <div class="row">test</div>
-                    <div class="row">test</div>
+                <!-- recent searchs displayed in screen -->
+                <div class="col recents">
+                    <div data-recent="1" class="row">test</div>
+                    <div data-recent="2" class="row">test</div>
+                    <div data-recent="3" class="row">test</div>
+                    <div data-recent="4" class="row">test</div>
+                    <div data-recent="5" class="row">test</div>
                 </div>
             </div>
 
-
+            <!-- city choosen displayed in the big container on the right -->
             <div class="col-8 container ">
                 <div class="row">
                     <div>
-                        <h3>Phoenix (10/25/2019)</h3>
-                        <p>Temperature:</p>
-                        <p>Humidity:</p>
-                        <p>Windy Speed:</p>
-                        <p>UV Index:</p>
+                        <h3 id="cityResult">Phoenix (10/25/2019)</h3>
+                        <p data-weather="temperature">Temperature:</p>
+                        <p data-weather="humidity">Humidity:</p>
+                        <p data-weather="wind">Wind Speed:</p>
+                        <p data-weather="uvindex">UV Index:</p>
 
                     </div>
 
                 </div>
                 <div class="row">
+
+                    <!-- display 5 days forecast -->
                     <h3>5 days Forecast <h3>
                 </div>
                 <div class="row">
@@ -108,10 +114,9 @@
         </footer>
         <!-- Footer -->
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-
-
-
+    <script src="script.js"></script>
 
 </body>
 
