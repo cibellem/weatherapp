@@ -1,3 +1,8 @@
+body{
+
+    background-color: white;
+}
+
 h1, h2, h3, h4, h5 {
     font-family: 'Montserrat', sans-serif;
 }
@@ -7,44 +12,51 @@ h1, h2, h3, h4, h5 {
     color: white;
 }
 
+.mainContainer{
+    
+    margin-bottom: 100px;
+}
+
+
+
 #forecastDiv1, #forecastDiv2 ,#forecastDiv3,#forecastDiv4,#forecastDiv5 {
    
-    /* align-content: center; */
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
+    align-content: center;
+    /* width: 150px;
+    height: 150px; */
+    margin: 5px;
+    padding: 5px;
     background-color: #17a2b8; 
-
+    text-align: center;
+    
 }
-.temperature { 
- 
+
+.temperature, #temperature1 { 
+    margin-top: 5px;
     font-size: 15px; 
     text-align: center;
 
 }
 
+#recentSearches{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
 
-#footer {
-    margin-top: 20px;
-  }
-
- .bttn {
-     background-color: whitesmoke;
-     padding: 10px;
-     width: 150px;
-     border:black;
- }
-h5 {
+ 
+  #date1, #date2, #date3 ,#date4, #date5, #date6  {
 
     text-align: center;
+    } 
+    .daysForecast{
+        margin:auto;
     }
 
-    .mainContainer{
-
-        margin-bottom: 100px;
-
-    }
- 
+    #footer {
+        margin-top: 20px;
+      }
+  
  /*
   These rules take effect when the browser's width
   is either 400px or less.
@@ -54,42 +66,49 @@ h5 {
         display: none;
     }
 
-    #currentConditions {
-
-        float: right;
-        font-size: 10px;
+    .mainContainer{
+        align-content: center;
+    }    
+    #userCity{
+        width: 100px;
     }
-
-    .forescast {
-
-        padding: 0;
-    }
-    h3 {
-
-        font-size: 15px;
-    }
-
     #currentConditions{
 
-        margin-right: 0px;
+        margin-top: 15px;
 
+    } 
+    #search{
+        text-align: center;
     }
 
-    #forecastDiv1 {
-        margin-bottom: 2px;
+    #wicon{
         align-content: center;
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-
-
     }
-    h5 {
-
-        font-size: 15px;
+    #forecasth3{
+        font-size: 20px;
+        font-style: italic;
+        text-align: center;
         
     }
+
+  .daysForecast{
+     margin:auto;
+     
     }
-    
+
+    #forecastDiv1, #forecastDiv2 ,#forecastDiv3,#forecastDiv4,#forecastDiv5 {
+   
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 25px;
+    }
+
+    h5 {
+        margin-top: 5px !important; 
+        
+    }
+}
+
+
     
 

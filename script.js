@@ -1,11 +1,15 @@
 $(document).ready(function () {
 
+
+
+    //setting some global variables
     var city = $("#userCity").val().trim();
-
-    localStorage.getItem("search");
+    var iconw = $("#wicon");
     var timeNow = moment().format('l');
-    console.log(timeNow)
+    JSON.parse(localStorage.getItem("city-search"));
 
+
+    //hides the content when page loads.
     $(".daysForecastheader").hide();
     $(".daysForecast").hide();
 
@@ -29,35 +33,35 @@ $(document).ready(function () {
 
         }).then(function (response) {
 
-
+            //content now it's displayed with the response we got back
             $(".daysForecastheader").show();
             $(".daysForecast").show();
 
-
+            //creating a variable for each info I want to display in my page
             var cityName = response.name;
-            var temperature = response.main.temp;
+            var temperature = response.main.temp.toFixed(0);
             var humidity = response.main.humidity;
             var windSpeed = response.wind.speed;
-            var lon = response.coord.lon;
-            console.log(lon)
-            var lat = response.coord.lat;
-            console.log(lat)
-            // var iconcode = a.weather[0].icon;
-            // var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+            // var lon = response.coord.lon;           
+            // var lat = response.coord.lat; 
 
-            // var uvindex = CRIAr
+            //creating  elements and appending the information stored in the variables above
             var $currentConditions = $("<div>");
             var $cityName = $("<h3>").text(cityName).append(" " + timeNow);
             var $temperature = $("<p>").text("Temperature: " + temperature + "°F");
             var $humidity = $("<p>").text("Humidity: " + humidity + "%");
             var $windSpeed = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
+            iconw.attr("src", "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
 
             $("#currentConditions").empty()
 
-            $currentConditions.prepend($cityName, $temperature, $humidity, $windSpeed)
+            $currentConditions.prepend($cityName, iconw, $temperature, $humidity, $windSpeed)
             $("#currentConditions").append($currentConditions);
-            localStorage.setItem("recent-search", city)
+            localStorage.setItem("city-search", JSON.stringify(city)
+            );
+
+
 
 
         })
@@ -89,23 +93,20 @@ $(document).ready(function () {
             var forecastCount = 1;
 
             //the forecast it's updated every 3 hours but I want to know the forecast every 24 hour 
+            //in every loop will check if the time it's equal to 00 which means it's another day.
 
             for (var i = 0; i < response.list.length; i++) {
 
                 //changing the format of the time to two digits //Midnight it's 00 the whole rest it's in militar time zone. 18,19,20,21,22 ,23,00 
                 var checkTime = moment(response.list[i].dt_txt).format("HH");
 
-                //in every loop wil check if the time it's equal to 00 which means it's another day. 
-                //if so creetes a paragraph with the temperature and humidity // vai fazer o loop com o i da vez e criar 2 paragrafos para mostra o conteudo na tela
 
+                //if time is equal to 00 a paragraph with the temperature , humidity and  icon // 
                 if (checkTime == 00) {
 
-
                     $("#date" + forecastCount).text(moment(response.list[i].dt_txt).format("l"));
-
-                    $("#temperature" + forecastCount).text("Temperature " + response.list[i].main.temp + "°F");//to fixed will return only 2 digits in the temp
-
-
+                    $("#temperature" + forecastCount).text("Temperature " + response.list[i].main.temp.toFixed(0) + "°F");//to fixed will return only 2 digits in the temp
+                    $("#wicon" + forecastCount).attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png")
                     $("#humidity" + forecastCount).text("Humidity " + response.list[i].main.humidity + "%");
                     forecastCount++
                 }
@@ -119,11 +120,18 @@ $(document).ready(function () {
     function recentSearches() {
 
         var city = $("#userCity").val().trim();
-        var recentSearch = $("<button>").text(city);
-        $("#recentSearches").prepend(recentSearch)
+        if (!city && city === city) {
 
-        recentSearch.addClass(".bttn");
-        localStorage.setItem("search", city);
+            return false;
+
+        } else
+
+            var recentSearch = $("<button>").text(city);
+        $("#recentSearches").prepend(recentSearch);
+        recentSearch.addClass("list-group-item list-group-item-warning btn btn-warning");
+
+
+
     }
 
 
