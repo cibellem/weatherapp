@@ -7,6 +7,89 @@ h1, h2, h3, h4, h5 {
     color: white;
 }
 
+#forecastDiv1, #forecastDiv2 ,#forecastDiv3,#forecastDiv4,#forecastDiv5 {
+   
+    /* align-content: center; */
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #17a2b8; 
+
+}
+.temperature { 
+ 
+    font-size: 15px; 
+    text-align: center;
+
+}
+
+
 #footer {
     margin-top: 20px;
   }
+
+ .bttn {
+     background-color: whitesmoke;
+     padding: 10px;
+     width: 150px;
+     border:black;
+ }
+h5 {
+
+    text-align: center;
+    }
+
+    .mainContainer{
+
+        margin-bottom: 100px;
+
+    }
+ 
+ /*
+  These rules take effect when the browser's width
+  is either 400px or less.
+*/
+@media screen and (max-width: 400px) {
+    #recentSearches {
+        display: none;
+    }
+
+    #currentConditions {
+
+        float: right;
+        font-size: 10px;
+    }
+
+    .forescast {
+
+        padding: 0;
+    }
+    h3 {
+
+        font-size: 15px;
+    }
+
+    #currentConditions{
+
+        margin-right: 0px;
+
+    }
+
+    #forecastDiv1 {
+        margin-bottom: 2px;
+        align-content: center;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+
+
+    }
+    h5 {
+
+        font-size: 15px;
+        
+    }
+    }
+    
+    
+

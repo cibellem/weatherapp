@@ -11,108 +11,131 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/9b22d73af0.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+        integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
 </head>
 
 <body>
+
     <!-- the header -->
-    <div class=" header jumbotron p-4 jumbotron-fluid">
-        <div class="container">
+    <div class="container mainContainer">
+
+        <div class=" header jumbotron p-4 jumbotron-fluid">
+
             <!-- <h1 class="display-8">Fluid jumbotron</h1> -->
             <h1 class="text-center">Weather Dashboard</h1>
-        </div>
-    </div>
-
-
-    <!-- container with user search and recent searchs -->
-    <div class="container">
-
-        <div class="row">
-
-
-            <div class="col-4 ">
-                <section>
-                    <h4 id="search" class="mr-5">Search for City</h4> <!--  fix margin here  -->
-                </section>
-                <div class="row col-10">
-
-                    <form class="form-inline ">
-                        <input id="userCity" class="form-control form-control-sm mr-3" type="text" aria-label="Search">
-                        <button id="bttnSearch" class="btn "> <i class=" fas fa-search" aria-hidden="true"></i>
-                        </button>
-                    </form>
-
-
-
-                </div>
-                <!-- recent searchs displayed in screen -->
-                <div class="col recents">
-                    <div data-recent="1" class="row">test</div>
-                    <div data-recent="2" class="row">test</div>
-                    <div data-recent="3" class="row">test</div>
-                    <div data-recent="4" class="row">test</div>
-                    <div data-recent="5" class="row">test</div>
-                </div>
-            </div>
-
-            <!-- city choosen displayed in the big container on the right -->
-            <div class="col-8 container ">
-                <div class="row">
-                    <div>
-                        <h3 id="cityResult">Phoenix (10/25/2019)</h3>
-                        <p data-weather="temperature">Temperature:</p>
-                        <p data-weather="humidity">Humidity:</p>
-                        <p data-weather="wind">Wind Speed:</p>
-                        <p data-weather="uvindex">UV Index:</p>
-
-                    </div>
-
-                </div>
-                <div class="row">
-
-                    <!-- display 5 days forecast -->
-                    <h3>5 days Forecast <h3>
-                </div>
-                <div class="row">
-                    <div class="mr-4 bg-info col-md-2">
-                        <h5 class="mt-1">10/25/2019</h5>
-                        <img src="sunny.png" alt="weathericon">
-                        <p>Temp:</p>
-                        <p>Humidity</p>
-                    </div>
-                    <div class="mr-4 bg-info col-md-2">
-                        <h5 class="mt-1">10/25/2019</h5>
-                        <img src="sunny.png" alt="weathericon">
-                        <p>Temp:</p>
-                        <p>Humidity</p>
-                    </div>
-                    <div class="mr-4  bg-info col-md-2">
-                        <h5 class="mt-1">10/25/2019</h5>
-                        <img src="sunny.png" alt="weathericon">
-                        <p>Temp:</p>
-                        <p>Humidity</p>
-                    </div>
-                </div>
-
-
-            </div>
-
-
 
         </div>
 
-        <!-- Footer -->
-        <footer id="footer" class="page-footer fixed-bottom font-small blue">
 
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2019 Copyright <em> Cibelle Montor</em>
+        <!-- container with user search and recent searchs -->
+        <div class="container">
+
+            <div class="row">
+                <div class="col-4 container">
+                    <div class=" row">
+
+
+
+                        <form class="form-inline ">
+                            <h4 id="search" class="mr-5">Search for City</h4>
+                            <input id="userCity" class="form-control form-control-md mr-3 w-75" type="text"
+                                placeholder="Search" aria-label="Search">
+
+                            <button id="bttnSearch" class="btn btn-warning "> <i class=" fas fa-search"
+                                    aria-hidden="true"></i>
+                            </button>
+
+                        </form>
+
+
+                    </div>
+                    <div class="row" id="recentSearches">
+
+                        <!-- recent searchs displayed in screen -->
+
+                    </div>
+
+                </div>
+
+
+                <!-- Main div with current weather conditions -->
+                <div class="col-8 container">
+                    <div class="row">
+                        <div class="col" id="currentConditions">
+
+                            <!-- content will be appended here-->
+                        </div>
+
+                    </div>
+                    <div class="row daysForecastheader">
+                        <!-- display 5 days forecast -->
+                        <h3>5 days Forecast <h3>
+                    </div>
+
+                    <div class="row daysForecast">
+
+
+                        <div id="forecastDiv1" class="row ">
+                            <h5 id=date1></h5>
+                            <p id="temperature1" class="temperature"></p>
+                            <p id="humidity1" class="humidity"></p>
+
+                        </div>
+
+                        <div id="forecastDiv2" class="row ">
+                            <h5 id=date2></h5>
+                            <p id="temperature2" class=" temperature mt-1"></p>
+                            <p id="humidity2" class="humidity"></p>
+
+                        </div>
+
+                        <div id="forecastDiv3" class="row ">
+                            <h5 id=date3></h5>
+                            <p id="temperature3" class="mt-1"></p>
+                            <p id="humidity3" class="humidity"></p>
+
+                        </div>
+
+                        <div id="forecastDiv4" class="row ">
+                            <h5 id=date4></h5>
+                            <p id="temperature4" class="mt-1 temperature"></p>
+                            <p id="humidity4" class="humidity"></p>
+
+                        </div>
+
+                        <div id="forecastDiv5" class="row ">
+                            <h5 id=date5></h5>
+                            <p id="temperature5" class="mt-1 temperature"></p>
+                            <p id="humidity5" class="humidity"></p>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
 
             </div>
-            <!-- Copyright -->
 
-        </footer>
-        <!-- Footer -->
+            <!-- Footer -->
+            <footer id="footer" class="page-footer fixed-bottom font-small blue">
+
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3"><em>© 2019 Copyright Cibelle Montor</em>
+
+                </div>
+                <!-- Copyright -->
+
+            </footer>
+            <!-- Footer -->
+        </div>
+
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
