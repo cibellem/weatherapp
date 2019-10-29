@@ -4,7 +4,7 @@
 
 ### Description
 
-This is a Weather Dashboard built using OpenWeather API. The application shows today's weather and a 5 days forecast. For the 5 days forecast and for the UV index I made two extra AJAX calls. The application also displays an icon representation of the actual weather. When the app is seen in a small screen I choose to not display the recent searches to provide a better user experience. This feature is available only in large screens. 
+This is a Weather Dashboard built using OpenWeather API. The application shows today's weather and a 5 days forecast. For the 5 days forecast and for the UV index I made two extra AJAX calls. The application also displays an icon representation of the actual weather. When the app is seen in a small screen I choose to not display the recent searches to provide a better user experience. This feature is available only in large screens. When you first land in the page only the search field and button are displayed and after you hit submit the information is displayed in the screen .
 
 
 
