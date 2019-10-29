@@ -3,10 +3,19 @@ body{
     background-color: white;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Montserrat', sans-serif;
+#userCity {
+    font-weight: none;
 }
 
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+    /* font-weight: bold; */
+}
+
+.icon-size{
+    font-size: 20px;
+}
 .header{
     background-color: darkorange;
     color: white;
@@ -17,13 +26,16 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 100px;
 }
 
+.daysForecastheader {
 
+    margin-top: 5px;
+
+}
 
 #forecastDiv1, #forecastDiv2 ,#forecastDiv3,#forecastDiv4,#forecastDiv5 {
-   
+    margin-bottom: 5px;
+    border-radius: 25px;
     align-content: center;
-    /* width: 150px;
-    height: 150px; */
     margin: 5px;
     padding: 5px;
     background-color: #17a2b8; 
@@ -31,18 +43,20 @@ h1, h2, h3, h4, h5 {
     
 }
 
-.temperature, #temperature1 { 
+/* .temperature, #temperature1 { 
     margin-top: 5px;
     font-size: 15px; 
     text-align: center;
 
-}
+} */
 
 #recentSearches{
     margin-top: 5px;
     margin-bottom: 5px;
     
 }
+
+
 
  
   #date1, #date2, #date3 ,#date4, #date5, #date6  {
@@ -84,6 +98,10 @@ h1, h2, h3, h4, h5 {
     #wicon{
         align-content: center;
     }
+
+    .myFooter{
+        display: none;
+    }
     #forecasth3{
         font-size: 20px;
         font-style: italic;
@@ -98,13 +116,24 @@ h1, h2, h3, h4, h5 {
 
     #forecastDiv1, #forecastDiv2 ,#forecastDiv3,#forecastDiv4,#forecastDiv5 {
    
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 5px;
+    position: relative;
     border-radius: 25px;
+    display: flex;
+    
+    
     }
+    #iconSpan {
+        float: right;
+    }
+   
 
     h5 {
-        margin-top: 5px !important; 
+        margin-top: 5px !important;   
+      
+        
+        
         
     }
 }

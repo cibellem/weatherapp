@@ -6,7 +6,9 @@ $(document).ready(function () {
     var city = $("#userCity").val().trim();
     var iconw = $("#wicon");
     var timeNow = moment().format('l');
-    JSON.parse(localStorage.getItem("city-search"));
+    var userSearch = JSON.parse(localStorage.getItem("city-search"));
+
+
 
 
     //hides the content when page loads.
@@ -15,11 +17,9 @@ $(document).ready(function () {
 
 
 
+
     $("button").on("click", function currentConditions(e) {
         e.preventDefault();
-
-
-
         uvIndex()
 
 
@@ -52,11 +52,15 @@ $(document).ready(function () {
             var $humidity = $("<p>").text("Humidity: " + humidity + "%");
             var $windSpeed = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
             iconw.attr("src", "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
+            $cityName.attr("style", "font-weight: bolder");
 
 
             $("#currentConditions").empty()
 
-            $currentConditions.prepend($cityName, iconw, $temperature, $humidity, $windSpeed)
+            $("#iconSpan").append(iconw);
+            iconw.attr("style", "font-size:8em")
+
+            $currentConditions.prepend($cityName, $temperature, $humidity, $windSpeed)
             $("#currentConditions").append($currentConditions);
             localStorage.setItem("city-search", JSON.stringify(city)
             );
@@ -66,11 +70,13 @@ $(document).ready(function () {
 
         })
 
-        recentSearches();
+        recentSearches(city);
 
         forecast5Days()
 
     })
+
+
 
 
     function forecast5Days() {
@@ -132,6 +138,8 @@ $(document).ready(function () {
 
 
 
+
+
     }
 
 
@@ -169,5 +177,3 @@ $(document).ready(function () {
 
 
 })
-
-

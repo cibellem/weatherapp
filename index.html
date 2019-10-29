@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/9b22d73af0.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
         integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Weather App</title>
 </head>
 
@@ -47,8 +47,8 @@
                             </button>
                         </form>
 
-                        <div class="row d-none d-xl-block">
-                            <div class="col-md-4 " id="recentSearches">
+                        <div id="search" class="row  d-xl-block">
+                            <div class="col-lg-8 col-md-12 col-sm-121 " id="recentSearches">
 
 
                             </div>
@@ -63,15 +63,21 @@
                 <!-- Main div with current weather conditions -->
                 <div class=" col-md-8 col-sm-12 containerConditions float-right ">
                     <div class=" row">
-                        <div class="col my-auto" id="currentConditions">
+                        <div class="col " id="currentConditions">
 
-                            <img id="wicon">
 
 
                             <!-- content will be appended here-->
                         </div>
 
+                        <div class=" col">
+                            <span id="iconSpan"></span><img style="font-size: 5rem" id="wicon">
+                        </div>
+
+
+
                     </div>
+
 
 
                     <!-- display 5 days forecast -->
@@ -124,7 +130,7 @@
 
                     </div>
 
-                    <div id="forecastDiv5" class="col-md-2   ">
+                    <div id="forecastDiv5" class="col-md-2 col-sm-1  ">
                         <h5 class=text-center id=date5></h5>
                         <p id="temperature5" class="mt-2 temperature"></p>
                         <img id="wicon5" alt="weathericon">
@@ -138,7 +144,8 @@
                 <!-- Footer -->
 
 
-                <nav class=" footer-copyright text-center py-3 justify-content-center fixed-bottom font-small blue">
+                <nav
+                    class=" myFooter footer-copyright text-center py-3 justify-content-center fixed-bottom font-small blue">
                     <em>© 2019 Copyright Cibelle Montor</em>
                 </nav>
 
@@ -148,7 +155,7 @@
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <script src="script.js"></script>
+        <script src="assets/js/script.js"></script>
 
 </body>
 
