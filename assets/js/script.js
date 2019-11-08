@@ -1,13 +1,14 @@
 
 
-
 //setting some global variables
 var city = $("#userCity").val().trim();
 var iconw = $("#wicon");
 var timeNow = moment().format('l');
-var userSearch = localStorage.setItem("city", city);
 
+var bttnSearch = $("#bttnSearch");
+var searchedCity = [];
 
+bttnSearch.on('click', currentConditions);
 
 
 //hides the content when page loads.
@@ -15,11 +16,10 @@ $(".daysForecastheader").hide();
 $(".daysForecast").hide();
 
 
+function currentConditions(e) {
+    e.preventDefault();
 
-
-$("#bttnSearch").on("click", function currentConditions(city) {
-    city.preventDefault();
-
+    //setting the city searched in the localstorage
 
 
     //sets the user's parameter and sets api for the Ajax Call
@@ -31,6 +31,7 @@ $("#bttnSearch").on("click", function currentConditions(city) {
 
 
     }).then(function (response) {
+
 
         //content now it's displayed with the response we got back
         $(".daysForecastheader").show();
@@ -44,8 +45,6 @@ $("#bttnSearch").on("click", function currentConditions(city) {
         var lon = response.coord.lon;
         var lat = response.coord.lat;
 
-        console.log(lon)
-        console.log(lat)
         uvIndex(lat, lon)
 
         //creating  elements and appending the information stored in the variables above
@@ -66,19 +65,28 @@ $("#bttnSearch").on("click", function currentConditions(city) {
 
         $currentConditions.prepend($cityName, $temperature, $humidity, $windSpeed)
         $("#currentConditions").append($currentConditions);
-        localStorage.setItem("city-search", JSON.stringify(city)
-        );
+
+        var recentSearch = $("<button>").text(cityName);
+        recentSearch.addClass("list-group-item list-group-item-warning btn btn-warning");
+        $("#recentSearches").prepend(recentSearch);
 
 
-        return
+        var citiesSearched = JSON.parse(localStorage.getItem("city-search") || [])
+        citiesSearched.push(recentSearch);
+        localStorage.setItem("city-search", JSON.stringify(citiesSearched));
+
+
+
 
     })
 
-    recentSearches(city);
+
+
+    recentSearches();
 
     forecast5Days()
 
-})
+}
 
 
 
@@ -127,24 +135,25 @@ function forecast5Days() {
 }
 
 
-function recentSearches() {
+function recentSearches(cityName) {
 
-    var city = $("#userCity").val().trim();
-    if (!city) {
+    var cityName = $("#userCity").val().trim();
+    if (!cityName) {
         alert("Please enter a city")
         return false;
 
-
     }
-    else {
 
-        var recentSearch = $("<button>").text(city);
-        $("#recentSearches").prepend(recentSearch);
-        recentSearch.addClass("list-group-item list-group-item-warning btn btn-warning");
-    }
+
+
+
+
+
 
 
 }
+
+
 
 
 
@@ -166,9 +175,9 @@ function uvIndex(lat, lon) {
         var $uvIndex = $("<p>").text("Uv Index: " + uvIndex);
         $("#currentConditions").append($uvIndex)
 
-
     })
 }
+
 
 
 
